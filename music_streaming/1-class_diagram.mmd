@@ -1,0 +1,43 @@
+classDiagram
+    class User {
+        +user_id : int
+        +username : str
+        +email : str
+        +create_playlist()
+        +follow_artist()
+        +add_song_to_playlist()
+        +remove_song_from_playlist()
+        +add_album_to_library()
+    }
+
+    class Artist {
+        +artist_id : int
+        +name : str
+        +genre : str
+    }
+
+    class Album {
+        +album_id : int
+        +title : str
+        +release_year : int
+    }
+
+    class Song {
+        +song_id : int
+        +title : str
+        +duration : int
+    }
+
+    class Playlist {
+        +playlist_id : int
+        +name : str
+        +add_song()
+        +remove_song()
+    }
+
+    Artist "1" --> "0..*" Album : creates
+    Album "1" --> "1..*" Song : contains
+    User "1" --> "0..*" Playlist : creates
+    Playlist "0..*" --> "0..*" Song : contains
+    User "0..*" --> "0..*" Artist : follows
+    User "0..*" --> "0..*" Album : library
