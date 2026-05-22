@@ -1,0 +1,6 @@
+sequenceDiagram
+    participant User
+    create participant Playlist
+
+    User->>Playlist: create_playlist()
+    Playlist-->>User: playlist created

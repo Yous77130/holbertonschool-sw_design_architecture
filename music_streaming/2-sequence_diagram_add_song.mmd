@@ -1,0 +1,9 @@
+sequenceDiagram
+    participant User
+    participant Playlist
+    participant Song
+
+    User->>Playlist: add_song()
+    Playlist->>Song: get song details
+    Song-->>Playlist: song details
+    Playlist-->>User: song added to playlist
